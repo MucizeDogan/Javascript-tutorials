@@ -112,3 +112,57 @@ let users = [
     return user
  }) 
  console.log(users)
+
+
+ // filter
+ // arrayde koşullara göre filtreleme yapar
+ const numbers2 = [1,3,5,7,9]
+ let high3numbers = numbers2.filter(number => number > 3)
+ console.log(high3numbers) // [5, 7, 9]
+ let high3low9numbers = numbers2.filter(number => number > 3 && number < 9)
+ console.log(high3low9numbers) // [5, 7]
+
+
+ // reduce
+ // reduce de bir callBack fonksion alır. parametre olarak bir toplayıcı, mevcut olanı, opsiyonel olarak da en sonda default değeri alır(dizinin ilk elemanı). geriye tek bir değer döndürür.
+ // yukarıdaki numbers2 dizisinin elemanlarını toplatalım
+ console.log(
+    numbers2.reduce((oldValue, currentValue) =>{
+    return oldValue + currentValue
+ }, 0) //-> buradaki 0 başlangıç değeri yani let total = 0 gibi 
+)
+
+
+// every
+// her bir elemana verdiğimiz koşulu sağlayıp sağlamadığını kontrol ediyor ve geriye bool bir değer dönüyor. Her bir eleman koşulu karşılıyorsa true döner
+console.log( "Every örneği",
+    users.every(user => user.age ===23) // dedim ki her user elemanının yaşı 23 mü // false
+)
+
+// some
+// every'nin benzeri tek farkı herhangi bir eleman koşulu karşılıyorsa true döner
+console.log( "some örneği",
+    users.some(user => user.age ===23) // dedim ki herhangi bir user elemanının yaşı 23 mü // true
+)
+
+
+// find
+// dizide koşula ilk uyan elemanı döndürür
+// numbers2 de 3 den büyük elemanı döndür diyeceğiz
+console.log(
+    numbers2.find(number => number > 3)
+) // --> 5
+
+
+// sort
+// büyükten küğe veya tam tersi için kullanılır. stringleri sıralar sadece...
+const names = ["Mucize", "Doğan", "Züleyha"]
+console.log(names.sort()) // ['Doğan', 'Mucize', 'Züleyha']
+
+//sayıları sıralamak için sort içinde metot yazılır
+const sortNumbers = [10,1,3,9,1.2,45]
+console.log(
+    sortNumbers.sort((a,b) => a - b), // bu şekilde küçükten büyüğe sıralıyor
+    sortNumbers.sort((a,b) => b - a), // büyükten küçüğe
+    users.sort((a,b) => b.id - a.id) // users dizisini id ye göre büyükten küçüğe sıralattık
+)
