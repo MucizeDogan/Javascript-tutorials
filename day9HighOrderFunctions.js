@@ -85,7 +85,7 @@ setTimeout(function(){
 
 
 // map
-// map forEach e benziyor yani izideki elemanları bir iterasyona sokuyoruz ama burada elemanları düzenleyebiliyoruz
+// map forEach e benziyor yani dizideki elemanları bir iterasyona sokuyoruz ama burada elemanları düzenleyebiliyoruz
 
 let users = [
     {
